@@ -5,7 +5,7 @@ import io
 import ctypes
 import os
 import pythoncom
-import pyWinhook as pyHook
+import pyHook
 import pywin32_system32
 import sys
 import time

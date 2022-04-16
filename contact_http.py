@@ -36,7 +36,13 @@ class Contact(BaseWorld):
                             instructions=json.dumps([json.dumps(i.display) for i in instructions]))
             if agent.pending_contact != agent.contact:
                 response['new_contact'] = agent.pending_contact
-                self.log.debug('Sending agent instructions to switch from C2 channel %s to %s' % (agent.contact, agent.pending_contact))
+                self.log.debug('Sending agent instructions to switch from C2 channel %s to %s' % (fagent.contact, age>
             if agent.executor_change_to_assign:
                 response['executor_change'] = agent.assign_pending_executor_change()
                 self.log.debug('Asking agent to update executor: %s', response.get('executor_change'))
+             response = json.dumps(response)
+             encrypted_response = rc4.rc4(response_json, "RedTeam") 
+             encoded_response = base64.b64encode(bytes(encrypted_response, "latin1").decode("latin1")
+             return web.Response(text=encoded_response)
+        except Exception as e:
+            self.log.error('Malformed beacon: %s' % e)
